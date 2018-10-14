@@ -14,9 +14,9 @@ class App extends Component {
         <p>
           Its really working
         </p>
-        <Person/>
-        <Person/>
-        <Person/>
+        <Person name='Max' age='28'/>
+        <Person name='Menu' age='23'>My Hobby is racing</Person>
+        <Person name='Staphinie' age='21'/>
       </div>
     );
   }
