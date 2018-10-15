@@ -36,6 +36,13 @@ class App extends Component {
       })
   }
 
+  style={
+    backgroundColor: 'White',
+    font: 'inherit',
+    border : '1px solid blue',
+    padding : '8px',
+    cursor : 'pointer'
+  }
   render() {
     return (
       <div className="App">
@@ -45,7 +52,7 @@ class App extends Component {
         <p>
           Its really working
         </p>
-        <button onClick={this.switchNameHandler.bind(this,'Maximilian')}>Switch Name</button>
+        <button style={this.style} onClick={this.switchNameHandler.bind(this,'Maximilian')}>Switch Name</button>
         <Person 
             name={this.state.persons[0].name} 
             age={this.state.persons[0].age}/>
