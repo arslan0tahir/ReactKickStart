@@ -41,7 +41,8 @@ class App extends Component {
     this.setState({showPersons: !personVisible})
   }
   deletePersonHandler=(index)=>{
-    const persons=this.state.persons;
+    //const persons=this.state.persons; as array is copied by reference so this method is not immutable
+    const persons=[...this.state.persons];
     persons.splice(index,1);
     this.setState({persons:persons})
   }
