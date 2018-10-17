@@ -8,9 +8,9 @@ class App extends Component {
 
   state={//reserved word
     persons:[
-      {name:'Max',age:28},
-      {name:'Manu',age:26},
-      {name:'Staphinie',age:29}
+      {id:'sdfde',name:'Max',age:28},
+      {id:'45rew',name:'Manu',age:26},
+      {id:'cvf4g',name:'Staphinie',age:29}
     ],
     showPersons: false
 
@@ -27,13 +27,20 @@ class App extends Component {
     })
   }
 
-  nameChangeHandler=(event) => {
+  nameChangeHandler=(id,test,event) => {//if bind is used then last arg is event
+      let personIndex=this.state.persons.findIndex(p=>{
+        return p.id==id
+      })
+      let persons=[...this.state.persons];
+      //let person={...person};
+
+      persons[personIndex].name=event.target.value;
+      console.log(test)
+
+
+
       this.setState({
-        persons:[
-          {name:'Max',age:28},
-          {name:event.target.value,age:26},
-          {name:'Staphinie',age:20}
-        ]
+        persons:persons
       })
   }
   togglePersonHandler=()=>{
@@ -64,9 +71,12 @@ class App extends Component {
         <div>
                   {this.state.persons.map((person,index)=>{
                     return <Person 
+                    key={person.id}//key is reserved work and should be unique,index is not good iea because it keeps on shifting when item is deleted
                     name={person.name} 
                     age={person.age}
-                    click={this.deletePersonHandler.bind(this,index)}/>
+                    click={this.deletePersonHandler.bind(this,index)}
+                    change={this.nameChangeHandler.bind(this,person.id,"check")}/>
+                    //with bind last arg holds event (person.id,....,event)
                   })}
               
         </div>
