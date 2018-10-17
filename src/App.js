@@ -54,15 +54,18 @@ class App extends Component {
     this.setState({persons:persons})
   }
 
-  style={
-    backgroundColor: 'White',
-    font: 'inherit',
-    border : '1px solid blue',
-    padding : '8px',
-    cursor : 'pointer'
-  }
+
   
   render() {
+    const style={
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border : '1px solid blue',
+      padding : '8px',
+      cursor : 'pointer'
+    }
+
     let persons=null;
     if (this.state.showPersons)
     {        
@@ -81,6 +84,7 @@ class App extends Component {
               
         </div>
       )
+      style.backgroundColor="red";
     }
 
     return (
@@ -91,7 +95,7 @@ class App extends Component {
         <p>
           Its really working
         </p>
-        <button style={this.style} onClick={this.togglePersonHandler}>Toggle Persons</button>
+        <button style={style} onClick={this.togglePersonHandler}>Toggle Persons</button>
         {persons}
       </div>
     );
