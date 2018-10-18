@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import classes from './App.module.css';
+
 import Person from './Person/Person'  // all components names should be in uppercase
 import Radium from 'radium'
 
@@ -57,21 +59,10 @@ class App extends Component {
 
   
   render() {
-    const style={
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border : '1px solid blue',
-      padding : '8px',
-      cursor : 'pointer',
-      ':hover' : {
-        backgroundColor: 'lightgreen',
-        color:'black'
-
-      }
-    }
+   
 
     let persons=null;
+    let btnClass="";
     if (this.state.showPersons)
     {        
     
@@ -89,9 +80,10 @@ class App extends Component {
               
         </div>
       )
-      style.backgroundColor="red";
-      style[':hover'].color="black";
-      style[':hover'].backgroundColor="salmon";
+      btnClass="Red";
+      // style.backgroundColor="red";
+      // style[':hover'].color="black";
+      // style[':hover'].backgroundColor="salmon";
 
     }
 
@@ -112,7 +104,11 @@ class App extends Component {
         <p className={classes.join(' ')}>
           Its really working
         </p>
-        <button style={style} onClick={this.togglePersonHandler}>Toggle Persons</button>
+        <button 
+          onClick={this.togglePersonHandler}
+          className={btnClass}>
+            Toggle Persons
+        </button>
         {persons}
       </div>
     );
