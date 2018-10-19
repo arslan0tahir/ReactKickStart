@@ -62,7 +62,7 @@ class App extends Component {
    
 
     let persons=null;
-    let btnClass="";
+    let btnClass=classes.Green;
     if (this.state.showPersons)
     {        
     
@@ -80,28 +80,28 @@ class App extends Component {
               
         </div>
       )
-      btnClass="Red";
+      btnClass=classes.Red;
       // style.backgroundColor="red";
       // style[':hover'].color="black";
       // style[':hover'].backgroundColor="salmon";
 
     }
 
-    const classes=[];
+    const myClasses=[];
     if (this.state.persons.length<=2){
-      classes.push('red');
+      myClasses.push('red');
     }
     if (this.state.persons.length<=1){
-      classes.push('bold');
+      myClasses.push('bold');
     }
 
-
+    console.log(classes)
     return (
       <div className="App">
         <h1>
           Hi i am react app
         </h1>
-        <p className={classes.join(' ')}>
+        <p className={myClasses.join(' ')}>
           Its really working
         </p>
         <button 

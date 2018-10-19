@@ -1,5 +1,5 @@
 
-.App button{
+button{
   background-color: green;
   color: white;
   font: inherit;
@@ -8,10 +8,20 @@
   cursor : pointer
 }
 
-.App button.Red {
+.Red {
   background-color: red;
 }
-.App button.Red:hover {
+
+.Red:hover {
   background-color: salmon;
+  color: black;
+}
+
+.Green {
+  background-color: green;
+}
+
+.Green:hover {
+  background-color: lightgreen;
   color: black;
 }
