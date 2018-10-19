@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import classes from './App.module.css';
 
-import Person from './Person/Person'  // all components names should be in uppercase
+import Person from '../components/Persons/Person/Person'  // all components names should be in uppercase
 import Radium from 'radium'
 
 class App extends Component {
