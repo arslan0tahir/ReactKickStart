@@ -5,6 +5,10 @@ import classes from './App.module.css';
 import Person from '../components/Persons/Person/Person'  // all components names should be in uppercase
 import Radium from 'radium'
 
+import Cockpit from '../components/Cockpit/Cockpit'
+import Persons from '../components/Persons/Persons'
+
+
 class App extends Component {
 
   state={//reserved word
@@ -61,53 +65,38 @@ class App extends Component {
    
 
     let persons=null;
-    let btnClass=classes.Green;
+    
     if (this.state.showPersons)
     {        
     
       persons=(
         <div>
-                  {this.state.persons.map((person,index)=>{
-                    return <Person 
-                    key={person.id}//key is reserved work and should be unique,index is not good iea because it keeps on shifting when item is deleted
-                    name={person.name} 
-                    age={person.age}
-                    click={this.deletePersonHandler.bind(this,index)}
-                    change={this.nameChangeHandler.bind(this,person.id,"check")}/>
-                    //with bind last arg holds event (person.id,....,event)
-                  })}
+                 <Persons
+                    persons={this.state.persons}
+                    clicked={this.deletePersonHandler}
+                    changed={this.nameChangeHandler}/>
               
         </div>
       )
-      btnClass=classes.Red;
+     
       // style.backgroundColor="red";
       // style[':hover'].color="black";
       // style[':hover'].backgroundColor="salmon";
 
     }
 
-    const myClasses=[];
-    if (this.state.persons.length<=2){
-      myClasses.push('red');
-    }
-    if (this.state.persons.length<=1){
-      myClasses.push('bold');
-    }
+    
 
     console.log(classes)
     return (
       <div className="App">
-        <h1>
-          Hi i am react app
-        </h1>
-        <p className={myClasses.join(' ')}>
-          Its really working
-        </p>
-        <button 
-          onClick={this.togglePersonHandler}
-          className={btnClass}>
-            Toggle Persons
-        </button>
+        <Cockpit
+          persons={this.state.persons}
+          showPersons={this.state.showPersons}
+          clicked={this.togglePersonHandler}/>
+
+    
+        
         {persons}
       </div>
     );
